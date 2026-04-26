@@ -2,13 +2,13 @@
 # OCR Image Preprocessor + Tesseract Runner
 # Usage: ./preprocess_ocr.sh <image_path> [lang]
 #   image_path : path to input image (jpg/png/webp etc.)
-#   lang       : tesseract languages, default: chi_sim+eng
+#   lang       : tesseract languages, default: chi_sim+chi_tra+eng
 # Output: OCR text to stdout
 
 set -euo pipefail
 
 INPUT="$1"
-LANG="${2:-chi_sim+eng}"
+LANG="${2:-chi_sim+chi_tra+eng}"
 
 # Verify input exists
 if [[ ! -f "$INPUT" ]]; then

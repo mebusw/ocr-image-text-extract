@@ -12,7 +12,7 @@ bash <skill>/scripts/preprocess_ocr.sh <image_path> [lang]
 ```
 
 - `image_path`: 任意图片格式（jpg/png/webp等）
-- `lang`: 语言参数，默认 `chi_sim+eng`（简体中文+英文）
+- `lang`: 语言参数，默认 `chi_sim+chi_tra+eng`（简体中文+繁体中文+英文）
 - 输出：识别后的纯文本到 stdout
 
 ## 预处理流程
@@ -44,8 +44,7 @@ Tesseract 参数：
 # 安装核心组件
 brew install imagemagick tesseract
 
-# 附件语言包（简中和英文）:
-brew install tesseract-eng tesseract-chi-sim
+# 附件语言包（中英文）: https://github.com/tesseract-ocr/tessdata_fast
 
 # 列出已安装的语言包
 tesseract --list-langs
@@ -55,12 +54,12 @@ tesseract --list-langs
 ## 示例
 
 ```bash
-# 提取图片文字（默认简体中文+英文）
+# 提取图片文字（默认简体中文+繁体中文+英文）
 bash scripts/preprocess_ocr.sh ~/photo.jpg
 
 # 指定语言
 bash scripts/preprocess_ocr.sh ~/receipt.png eng
-bash scripts/preprocess_ocr.sh ~/japanese_doc.jpg jpn
+bash scripts/preprocess_ocr.sh ~/chinese_doc.jpg chi_sim
 ```
 
 ## 已知限制

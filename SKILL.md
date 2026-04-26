@@ -41,16 +41,16 @@ Tesseract 参数：
 
 安装命令（macOS）:
 ```bash
+# 安装核心组件
 brew install imagemagick tesseract
-```
 
-语言包（中英）:
-```bash
-# 安装后下载精简语言包
-# 中文简体
-curl -L "https://github.com/tesseract-ocr/tessdata_fast/raw/main/chi_sim.traineddata" \
-  -o /opt/homebrew/share/tessdata/chi_sim.traineddata
+# 附件语言包（简中和英文）:
+brew install tesseract-eng tesseract-chi-sim
+
+# 列出已安装的语言包
+tesseract --list-langs
 ```
+ 
 
 ## 示例
 
@@ -68,3 +68,6 @@ bash scripts/preprocess_ocr.sh ~/japanese_doc.jpg jpn
 - 竖排文字识别效果较差
 - 艺术字体、手写体识别率低
 - 图片过小（<200px宽）或严重压缩会明显影响效果
+
+## 提示
+如果MacOS系统太老，请提示用户使用MacPort代替Homebrew来安装组件

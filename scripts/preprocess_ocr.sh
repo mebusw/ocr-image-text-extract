@@ -8,7 +8,11 @@
 set -euo pipefail
 
 INPUT="$1"
+# Default: Simplified + Traditional Chinese + English
 LANG="${2:-chi_sim+chi_tra+eng}"
+
+# Support user-local tessdata (~/.tessdata)
+export TESSDATA_PREFIX="${TESSDATA_PREFIX:-$HOME/.tessdata}"
 
 # Verify input exists
 if [[ ! -f "$INPUT" ]]; then

@@ -1,6 +1,6 @@
 ---
 name: ocr-image-text-extract
-description: Extract text from images using Tesseract OCR with ImageMagick preprocessing. Use when asked to OCR, recognize, or extract text from an image, screenshot, or photo of a document. Handles Chinese (simplified) and English. The preprocessing step (grayscale + contrast + sharpen + despeckle + 2x upscale) significantly improves recognition accuracy for photos of product pages, receipts, documents, and other real-world images.
+description: Extract text from images using Tesseract OCR with ImageMagick preprocessing. Use when asked to OCR, recognize, or extract text from an image, screenshot, or photo of a document. Handles Chinese (simplified + traditional) and English. The preprocessing step (grayscale + contrast + sharpen + despeckle + 2x upscale) significantly improves recognition accuracy for photos of product pages, receipts, documents, and other real-world images.
 ---
 
 # OCR Image Text Extract
@@ -48,6 +48,20 @@ brew install imagemagick tesseract
 
 # 列出已安装的语言包
 tesseract --list-langs
+```
+
+语言包（中英繁）:
+```bash
+# 安装后下载精简语言包（放入用户目录，由 TESSDATA_PREFIX 指定）
+mkdir -p ~/.tessdata
+
+# 中文简体
+curl -L "https://github.com/tesseract-ocr/tessdata_fast/raw/main/chi_sim.traineddata" \
+  -o ~/.tessdata/chi_sim.traineddata
+
+# 中文繁体
+curl -L "https://github.com/tesseract-ocr/tessdata_fast/raw/main/chi_tra.traineddata" \
+  -o ~/.tessdata/chi_tra.traineddata
 ```
  
 
